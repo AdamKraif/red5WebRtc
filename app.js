@@ -3,7 +3,7 @@
 const http = require('http');
 const fs = require('fs');
 
-var ground_host = '172.17.16.207';
+var ground_host = '34.255.172.176';
 
 var web_server = function (host) {
     this.path = './';
