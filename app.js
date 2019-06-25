@@ -3,7 +3,7 @@
 const http = require('http');
 const fs = require('fs');
 
-var ground_host = '34.255.172.176';
+var ground_host = '0.0.0.0';
 
 var web_server = function (host) {
     this.path = './';
@@ -42,7 +42,7 @@ var web_server = function (host) {
         type="."+type.pop();
         console.log("HTTPREQ:", req.url, "as", url, "type", type);
         type = (typeof this.file2mime[type] !== undefined)?this.file2mime[type]:'text/html';
-        fs.readFile(url, { encoding: type.e }, function (type, res, err, data) {
+        fs.readFile(url, { encoding: type ? type.e : null }, function (type, res, err, data) {
             if (err) {
                 console.log("HTTP404:", err);
                 res.writeHead(404, {'Content-Type': 'text/html'});
