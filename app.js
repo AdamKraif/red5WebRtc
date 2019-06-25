@@ -45,8 +45,8 @@ var web_server = function (host) {
         fs.readFile(url, { encoding: type ? type.e : null }, function (type, res, err, data) {
             if (err) {
                 console.log("HTTP404:", err);
-                res.writeHead(404, {'Content-Type': 'text/html'});
-                res.end("404 Not Found");
+                // res.writeHead(404, {'Content-Type': 'text/html'});
+                // res.end("404 Not Found");
             } else {
                 console.log("HTTP200:", type);
                 res.writeHead(200, {'Content-Type': type.t});
