@@ -3,7 +3,7 @@
 const http = require('http');
 const fs = require('fs');
 
-var ground_host = '0.0.0.0';
+var ground_host = '172.17.16.207';
 
 var web_server = function (host) {
     this.path = './';
@@ -49,7 +49,7 @@ var web_server = function (host) {
                 // res.end("404 Not Found");
             } else {
                 console.log("HTTP200:", type);
-                res.writeHead(200, {'Content-Type': type.t});
+                res.writeHead(200, {'Content-Type': type ? type.t : 'application/javascript'});
                 res.end(data, type.e);
             }
         }.bind(this, type, res));
