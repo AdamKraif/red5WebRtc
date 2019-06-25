@@ -3,7 +3,7 @@
 const http = require('http');
 const fs = require('fs');
 
-var ground_host = '172.17.16.207';
+var ground_host = '0.0.0.0';
 
 var web_server = function (host) {
     this.path = './';
@@ -50,7 +50,7 @@ var web_server = function (host) {
             } else {
                 console.log("HTTP200:", type);
                 res.writeHead(200, {'Content-Type': type ? type.t : 'application/javascript'});
-                res.end(data, type.e);
+                res.end(data, type ? type.e : 'utf8');
             }
         }.bind(this, type, res));
     }
